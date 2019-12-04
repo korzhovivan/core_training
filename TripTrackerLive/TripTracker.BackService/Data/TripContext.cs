@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using TripTracker.BackService.Models;
@@ -8,15 +9,24 @@ namespace TripTracker.BackService.Data
 {
     public class TripContext : DbContext
     {
+        public TripContext(DbContextOptions<TripContext> options) : base(options) { }
+        public TripContext() { }
 
         public DbSet<Trip> Trips { get; set; }
 
-        public static void SeedData()
+        public static void SeedData(IServiceProvider serviceProvider)
         {
-            if (Trips.Any()) return;
+            using (var serviceScope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
 
-            Trips.AddRange(new Trip[]
-                {
+                var context = serviceScope.ServiceProvider.GetService<TripContext>();
+
+                context.Database.EnsureCreated();
+
+                if (context.Trips.Any()) return;
+
+                context.Trips.AddRange(new Trip[]
+                    {
                     new Trip
                     {
                         Id = 0,
@@ -38,10 +48,10 @@ namespace TripTracker.BackService.Data
                         StartDate = new DateTime(2019,5,7),
                         EndTime = new DateTime(2019,5,9)
                     }
-                }
-            );
-            SaveChanges();
+                    }
+                );
+                context.SaveChanges();
+            }
         }
     }
-
 }

@@ -31,6 +31,7 @@ namespace TripTracker.BackService.Controllers
         {
             var trips =  await _context.Trips
                 .AsNoTracking()
+                .Include(t => t.Segments)
                 .ToListAsync();
             return Ok(trips);
         }

@@ -26,3 +26,6 @@ C:\Users\Korzhov Ivan\Desktop\core_training\TripTrackerLive\TripTracker.BackServ
 C:\Users\Korzhov Ivan\Desktop\core_training\TripTrackerLive\TripTracker.BackService\obj\Debug\netcoreapp2.1\TripTracker.BackService.RazorTargetAssemblyInfo.cache
 C:\Users\Korzhov Ivan\Desktop\core_training\TripTrackerLive\TripTracker.BackService\obj\Debug\netcoreapp2.1\TripTracker.BackService.dll
 C:\Users\Korzhov Ivan\Desktop\core_training\TripTrackerLive\TripTracker.BackService\obj\Debug\netcoreapp2.1\TripTracker.BackService.pdb
+C:\Users\Korzhov Ivan\Desktop\core_training\TripTrackerLive\TripTracker.BackService\bin\Debug\netcoreapp2.1\TripTrackerDTO.dll
+C:\Users\Korzhov Ivan\Desktop\core_training\TripTrackerLive\TripTracker.BackService\bin\Debug\netcoreapp2.1\TripTrackerDTO.pdb
+C:\Users\Korzhov Ivan\Desktop\core_training\TripTrackerLive\TripTracker.BackService\obj\Debug\netcoreapp2.1\TripTracker.BackService.csproj.CopyComplete
