@@ -7,45 +7,43 @@ using Microsoft.EntityFrameworkCore;
 using TripTracker.BackService.Data;
 using TripTracker.BackService.Models;
 
-
 namespace TripTracker.BackService.Controllers
 {
-    
-    [Route("api/[controller]")]
-    [ApiController]
-    public class TripsController : ControllerBase
-    {
-        TripContext _context;
 
+    [Route("api/[controller]")]
+    public class TripsController : Controller
+    {
+
+        TripContext _context;
         public TripsController(TripContext context)
         {
             _context = context;
-           //_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            //  _context.ChangeTracker.QueryTrackingBehavior=QueryTrackingBehavior.NoTracking;
         }
 
-       
 
-        // GET api/values
+        // GET api/Trips
         [HttpGet]
         public async Task<IActionResult> GetAsync()
         {
-            var trips =  await _context.Trips
+
+            var trips = await _context.Trips
                 .AsNoTracking()
-                .Include(t => t.Segments)
                 .ToListAsync();
             return Ok(trips);
+
         }
 
-        // GET api/values/5
+        // GET api/Trips/5
         [HttpGet("{id}")]
         public Trip Get(int id)
         {
             return _context.Trips.Find(id);
         }
 
-        // POST api/values
+        // POST api/Trips
         [HttpPost]
-        public IActionResult Post([FromBody] Trip value)
+        public IActionResult Post([FromBody]Trip value)
         {
 
             if (!ModelState.IsValid)
@@ -57,12 +55,14 @@ namespace TripTracker.BackService.Controllers
             _context.SaveChanges();
 
             return Ok();
+
         }
 
-        // PUT api/values/5
+        // PUT api/Trips/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, [FromBody] Trip value)
+        public async Task<IActionResult> PutAsync(int id, [FromBody]Trip value)
         {
+
             if (!_context.Trips.Any(t => t.Id == id))
             {
                 return NotFound();
@@ -73,13 +73,15 @@ namespace TripTracker.BackService.Controllers
                 return BadRequest(ModelState);
             }
 
+            //what about nulls?
             _context.Trips.Update(value);
-             await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             return Ok();
+
         }
 
-        // DELETE api/values/5
+        // DELETE api/Trips/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -94,7 +96,10 @@ namespace TripTracker.BackService.Controllers
             _context.Trips.Remove(myTrip);
             _context.SaveChanges();
 
+            // DELETE FROM Trips WHERE id=?
+
             return NoContent();
+
         }
     }
 }

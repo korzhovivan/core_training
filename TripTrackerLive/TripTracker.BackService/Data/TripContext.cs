@@ -29,24 +29,24 @@ namespace TripTracker.BackService.Data
                     {
                     new Trip
                     {
-                        Id = 0,
+                        Id = 1,
                         Name = "MVP Summit",
                         StartDate = new DateTime(2019,3,5),
-                        EndTime = new DateTime(2019,3,8)
-                    },
-                    new Trip
-                    {
-                        Id = 1,
-                        Name = "DevInterSection Orlando 2018",
-                        StartDate = new DateTime(2019,3,25),
-                        EndTime = new DateTime(2019,3,27)
+                        EndDate = new DateTime(2019,3,8)
                     },
                     new Trip
                     {
                         Id = 2,
+                        Name = "DevInterSection Orlando 2018",
+                        StartDate = new DateTime(2019,3,25),
+                        EndDate = new DateTime(2019,3,27)
+                    },
+                    new Trip
+                    {
+                        Id = 3,
                         Name = "Build 2019",
                         StartDate = new DateTime(2019,5,7),
-                        EndTime = new DateTime(2019,5,9)
+                        EndDate = new DateTime(2019,5,9)
                     }
                     }
                 );

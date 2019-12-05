@@ -18,8 +18,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="4.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TripTrackerDTO\TripTrackerDTO.csproj" />
-  </ItemGroup>
-
 </Project>
